@@ -1,0 +1,18 @@
+{
+    "require": {
+        "twig/twig": "~2.0",
+        "php-http/curl-client": "^1.7",
+        "guzzlehttp/psr7": "^1.4",
+        "php-http/message": "^1.5",
+        "twig/extensions": "^1.5",
+        "rooftyler/nobadbots": "*"
+    },
+    "autoload": {
+        "psr-4": {
+             "Core\\": "Core/",
+             "App\\": "App/"
+        }
+    },
+    "require-dev": {
+    }
+}
