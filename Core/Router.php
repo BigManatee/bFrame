@@ -40,7 +40,7 @@ class Router {
      * @param array  $params Parameters (controller, action, etc.)
      * @return void
      */
-    public function add($route, $action, $middleware=null) {
+    public function add($route, $action) {
         // Convert the route to a regular expression: escape forward slashes
         $route = preg_replace('/\//', '\\/', $route);
 
@@ -54,9 +54,6 @@ class Router {
         $route = '/^' . $route . '$/i';
 
         $this->routes[$route] = $action;
-        if($middleware != null){
-            $this->routes[$route]['middleware'] = $middleware;
-        }
     }
 
     /**
@@ -122,12 +119,6 @@ class Router {
                 $controller = $this->params['controller'];
                 $controller = $this->convertToStudlyCaps($controller);
                 $controller = $this->getNamespace() . $controller;
-
-                if(isset($this->params['middleware'])){
-                    foreach($this->params['middleware'] as $func){
-                        echo forward_static_call(array("\Core\Middleware", $func));
-                    }
-                }
 
                 if (class_exists($controller)) {
                     $controller_object = new $controller($this->params);

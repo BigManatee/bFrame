@@ -17,9 +17,9 @@ class Hooks {
     	/**
     	 * Check if $type is either before or after
     	 */
-    	$whereFrom = debug_backtrace();
+    	$calledFrom = debug_backtrace();
     	if(!in_array($type, ['before','after'])) {
-    		throw new \Exception("Invalid \$type used ($type), needs to be 'before' or 'after' in ".$whereFrom[0]['file']." on line ".$whereFrom[0]['line']." ");
+    		throw new \Exception("Invalid \$type used ($type), needs to be 'before' or 'after' in ".$calledFrom[0]['file']." on line ".$calledFrom[0]['line']." ");
     	}
 
     	/**

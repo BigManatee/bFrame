@@ -56,7 +56,6 @@ abstract class Controller {
      * @return void
      */
     protected function before() {
-        //Social::cacheTweets();
     }
 
     /**
@@ -65,6 +64,5 @@ abstract class Controller {
      * @return void
      */
     protected function after() {
-
     }
 }

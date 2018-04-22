@@ -48,15 +48,11 @@ class View {
             /** From Composer twig/extensions (|truncate(x)) */
             $twig->addExtension(new \Twig_Extensions_Extension_Text());
 
-            /**
-             * Slugify Filter
-             */
+            /** Slugify Filter */
             $slugify = new \Twig_Filter('slugify', '\Core\Funcs::slugify');
             $twig->addFilter($slugify);
 
-            /**
-             * Convert to gb/kb etc
-             */
+            /** Convert to gb/kb etc */
             $dconvert = new \Twig_Filter('dconvert', '\Core\Funcs::convert');
             $twig->addFilter($dconvert);
 
@@ -73,9 +69,7 @@ class View {
                 array('pre_escape' => 'html', 'is_safe' => array('html'))
             ));
 
-            /**
-             * Add global vars to {{ x }}
-             */
+            /** Add global vars to {{ x }} */
             $twig->addGlobal('version', '1.32');
             
             $twig->addGlobal('app', [
