@@ -42,7 +42,7 @@ View::renderTemplate('Home/index.php', [
   'blogPosts' => $blogPosts
 ]);
 ```
-and within this template, `Home/index.php` we would just use the code below to display data from $blogPosts
+and within this template, `Home/index.php`, we would just use the code below to display data from `$blogPosts`
 ```twig
 {% for post in blogPosts %}
   Post ID: {{ post.id }}
