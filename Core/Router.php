@@ -51,9 +51,15 @@ class Router {
         $route = preg_replace('/\{([a-z]+):([^\}]+)\}/', '(?P<\1>\2)', $route);
 
         // Add start and end delimiters, and case insensitive flag
-        $route = '/^' . $route . '$/i';
-
-        $this->routes[$route] = $action;
+        if(is_array($route)){
+            foreach ($route as $singleRoute) {
+                $route = '/^' . $singleRoute . '$/i';
+                $this->routes[$route] = $action;
+            }
+        } else {
+            $route = '/^' . $route . '$/i';
+            $this->routes[$route] = $action;
+        }
     }
 
     /**

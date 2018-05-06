@@ -18,7 +18,7 @@ $router = new Core\Router();
 /**
  * These are just examples
  */
-$router->add('', ['controller' => 'Home', 'action' => 'index']);
+$router->add(['','home'], ['controller' => 'Home', 'action' => 'index']);
 $router->add('about-me', ['controller' => 'Home', 'action' => 'aboutMe']);
 
 $router->add('blog/{str:[^/]+}', ['controller' => 'Blog', 'action' => 'postSlug']);
